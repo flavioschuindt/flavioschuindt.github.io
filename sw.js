@@ -1,8 +1,8 @@
-const version = '20190203015804';
+const version = '20190203023156';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/jekyll/update/2019/02/02/welcome-to-jekyll.html","/dicom/healthcare/tutorial/2019/02/02/dicom-from-zero-to-hero.html","/about/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/feed.xml","/sitemap.xml","/robots.txt","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/dicom/healthcare/tutorial/2019/02/02/dicom-from-zero-to-hero.html","/about/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/feed.xml","/sitemap.xml","/robots.txt","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 
