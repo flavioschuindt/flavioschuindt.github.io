@@ -1,8 +1,8 @@
-const version = '20190203205744';
+const version = '20190203212149';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/dicom/healthcare/2019/02/02/dicom-from-zero-to-hero-part-1.html","/about/","/categories/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/feed.xml","/sitemap.xml","/robots.txt","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/healthcare/dicom/2019/02/02/dicom-from-zero-to-hero-part-1.html","/about/","/categories/","/","/articles/tags/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/feed.xml","/sitemap.xml","/robots.txt","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 
