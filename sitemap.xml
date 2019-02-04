@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>blog.flavioschuindt.com/dicom/healthcare/tutorial/2019/02/02/dicom-from-zero-to-hero.html</loc>
+<loc>blog.flavioschuindt.com/dicom/healthcare/2019/02/02/dicom-from-zero-to-hero-part-1.html</loc>
 <lastmod>2019-02-02T21:09:06-08:00</lastmod>
 </url>
 <url>
@@ -9,6 +9,9 @@
 </url>
 <url>
 <loc>blog.flavioschuindt.com/about/</loc>
+</url>
+<url>
+<loc>blog.flavioschuindt.com/categories/</loc>
 </url>
 <url>
 <loc>blog.flavioschuindt.com/</loc>
