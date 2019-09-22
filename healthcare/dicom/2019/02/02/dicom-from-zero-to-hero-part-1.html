@@ -21,7 +21,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-02-02T21:09:06-08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"blog.flavioschuindt.com/healthcare/dicom/2019/02/02/dicom-from-zero-to-hero-part-1.html"},"url":"blog.flavioschuindt.com/healthcare/dicom/2019/02/02/dicom-from-zero-to-hero-part-1.html","headline":"DICOM: From Zero to Hero - Part 1","description":"This is the first post in a series of three presenting the DICOM standard. We’ll cover the basic understandind of DICOM, starting with the DICOM Image Structure, the DICOM Information Model and DICOM Communication Model. Let’s start!","dateModified":"2019-02-02T21:09:06-08:00","datePublished":"2019-02-02T21:09:06-08:00","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"blog.flavioschuindt.com/healthcare/dicom/2019/02/02/dicom-from-zero-to-hero-part-1.html","headline":"DICOM: From Zero to Hero - Part 1","dateModified":"2019-02-02T21:09:06-08:00","datePublished":"2019-02-02T21:09:06-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"blog.flavioschuindt.com/healthcare/dicom/2019/02/02/dicom-from-zero-to-hero-part-1.html"},"description":"This is the first post in a series of three presenting the DICOM standard. We’ll cover the basic understandind of DICOM, starting with the DICOM Image Structure, the DICOM Information Model and DICOM Communication Model. Let’s start!","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -39,20 +39,7 @@
 
     <!-- Overwrite this file with code you want before the closing head tag -->
 
-  
-    <!-- Google Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-133738722-1', 'auto');
-	ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
-	ga('set', 'anonymizeIp', false);
-    </script>
-    <!-- End Google Analytics -->
-    </head>
+  </head>
 
   <body class="layout-post  dicom-from-zero-to-hero-part-1">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="height: 0; position: absolute">
@@ -192,9 +179,25 @@ applyToggle('.list--nav', '.button', 640)
 
 <p style="text-align: justify">In the beginning of the 80’s, it was almost impossible for anyone other than manufacturers of CT and MRI devices to read and decode the images produced by the device. In <strong>1983</strong> the <a href="https://www.acr.org/">American College of Radiology</a> and the <a href="https://www.nema.org/pages/default.aspx">National Electrical Manufacturers Association</a> worked together and estabilished a standards committee to meets the combined needs of radiologists, physicists and equipment vendors. Then, in <strong>1985</strong> the first version of DICOM was released with name <strong>ACR-NEMA 300</strong>. The second version of the ACR-NEMA 300 came out in <strong>1988</strong> and gained increased acceptance among vendors. Only in <strong>1993</strong> the third version came out and was finally named as <strong>DICOM</strong>. The name changed because the Cardiologists entered in the game too and a name which contains only radiologists (ACR) would not make the cardiologists happy. There was a war a that time. The DICOM 3.0 from <strong>1993</strong> had <strong>9</strong> parts of the standard and the current version, <strong>which is still 3.0</strong>, incorporated <strong>10</strong> new parts and <strong>210</strong> supplements.</p>
 
+<h2 id="representing-values-in-dicom">Representing values in DICOM</h2>
+
+<p>As we’ll see in the coming sections, each DICOM element is represented by a DICOM tag. With the definition of this tag, comes the <strong>V</strong>alue <strong>R</strong>epresentation (<strong>VR</strong>) of this tag, i.e., the kind of values that one can assign to this tag. Think about it as the same variable declaration that you do in a programming language: you say the <code class="highlighter-rouge">name</code> and the <code class="highlighter-rouge">type</code> of the variable. DICOM defines 27 basic data types and any data that you intend to encode in DICOM <strong>must</strong> use one of these 27 data types. You can see all of them <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part05/PS3.5.html">here</a>.</p>
+
+<p>For example, following our analogy with programming languages, let’s say you would like to represent the number of rows of a medical image in C:</p>
+
+<p><code class="highlighter-rouge">unsigned short rows = 800;</code></p>
+
+<p>And the same data in DICOM:</p>
+
+<p><code class="highlighter-rouge">Tag (0028,0010) = 800;</code></p>
+
+<p><code class="highlighter-rouge">(0028,0010)</code> is the DICOM tag for the image rows.</p>
+
 <h2 id="dicom-image-structure">DICOM Image Structure</h2>
 
-<p style="text-align: justify">To understand DICOM, the first thing that we need to know is how the standard defines a <strong>DICOM Image</strong>.</p>
+<p style="text-align: justify">To understand DICOM, the first thing that you need to know is how the standard defines a <strong>DICOM Image</strong>. Every image in DICOM is an <em>Information Object Definition</em> (IOD). To understand what is the <strong>IOD</strong>, pretend you are a doctor and you are examining a patient MR image to look for any disease and/or disorder. <strong>You simply can’t provide a diagnose only looking at the image</strong>. You need to look also at the <strong>metadata</strong>, i.e., the data produced at the circustances in which that particular image was taken. The metadata can be: Patient Name, Patient ID, Study Date, Study Description, Image Date, Image Time, etc. Then:<br /><br />
+<span style="color:red;font-weight:bold">Pixel Data</span> + <span style="color:blue;font-weight:bold">Metadata</span> = <strong>IOD</strong> <br /><br />
+<img src="/assets/images/dicom_data.png" alt="alt text" title="DICOM IOD" /></p>
 
 
     <div class="share">
