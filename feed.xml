@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="blog.flavioschuindt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="blog.flavioschuindt.com/" rel="alternate" type="text/html" /><updated>2019-09-29T00:17:18-07:00</updated><id>blog.flavioschuindt.com/feed.xml</id><title type="html">Flávio Schuindt</title><subtitle>All content copyright Flávio Schuindt © 2019. All rights reserved.</subtitle><entry><title type="html">DICOM: From Zero to Hero - Part 1</title><link href="blog.flavioschuindt.com/healthcare/dicom/2019/09/21/dicom-from-zero-to-hero-part-1.html" rel="alternate" type="text/html" title="DICOM: From Zero to Hero - Part 1" /><published>2019-09-21T19:41:07-07:00</published><updated>2019-09-21T19:41:07-07:00</updated><id>blog.flavioschuindt.com/healthcare/dicom/2019/09/21/dicom-from-zero-to-hero-part-1</id><content type="html" xml:base="blog.flavioschuindt.com/healthcare/dicom/2019/09/21/dicom-from-zero-to-hero-part-1.html">&lt;p style=&quot;text-align: justify&quot;&gt;This is the first post in a series of three presenting the DICOM standard. We’ll cover the basic understandind of DICOM, starting with the DICOM data encoding, the DICOM Image representation and DICOM Communication Model. Let’s start!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="blog.flavioschuindt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="blog.flavioschuindt.com/" rel="alternate" type="text/html" /><updated>2019-12-30T02:20:18-08:00</updated><id>blog.flavioschuindt.com/feed.xml</id><title type="html">Flávio Schuindt</title><subtitle>All content copyright Flávio Schuindt © 2019. All rights reserved.</subtitle><entry><title type="html">Into the DICOM World - Part 1</title><link href="blog.flavioschuindt.com/healthcare/dicom/2019/12/30/into-the-dicom-world-part-1.html" rel="alternate" type="text/html" title="Into the DICOM World - Part 1" /><published>2019-12-30T01:15:00-08:00</published><updated>2019-12-30T01:15:00-08:00</updated><id>blog.flavioschuindt.com/healthcare/dicom/2019/12/30/into-the-dicom-world-part-1</id><content type="html" xml:base="blog.flavioschuindt.com/healthcare/dicom/2019/12/30/into-the-dicom-world-part-1.html">&lt;p style=&quot;text-align: justify&quot;&gt;This is the first post in a series of four presenting the DICOM standard. We’ll cover the basic understandind of DICOM, starting with the DICOM data encoding. The next posts will focus on the DICOM Object, the DICOM Image representation and DICOM Communication Model.&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -12,7 +12,7 @@
 
 &lt;h2 id=&quot;dicom-data-types-vrs&quot;&gt;DICOM Data Types: VRs&lt;/h2&gt;
 
-&lt;p style=&quot;text-align: justify&quot;&gt;As you’ll see in the coming sections, each DICOM element is represented by a DICOM tag. With the definition of this tag, comes the &lt;strong&gt;V&lt;/strong&gt;alue &lt;strong&gt;R&lt;/strong&gt;epresentation (&lt;strong&gt;VR&lt;/strong&gt;) of this tag, i.e., the kind of values that one can assign to this tag. Think about it as the same variable declaration that you do in a programming language: you say the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; and the &lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt; of the variable. DICOM defines 27 basic data types and any data that you intend to encode in DICOM &lt;strong&gt;must&lt;/strong&gt; use one of these 27 data types. You can see all of them &lt;a href=&quot;http://dicom.nema.org/medical/dicom/current/output/chtml/part05/PS3.5.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Each DICOM element has a &lt;strong&gt;V&lt;/strong&gt;alue &lt;strong&gt;R&lt;/strong&gt;epresentation (&lt;strong&gt;VR&lt;/strong&gt;), i.e., the type of values that one can assign to it. Think about it as the same variable declaration that you do in a programming language: you say the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; and the &lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt; of the variable. DICOM defines 27 basic data types and any data that you intend to encode in DICOM &lt;strong&gt;must&lt;/strong&gt; use one of these 27 data types. You can see all of them &lt;a href=&quot;http://dicom.nema.org/medical/dicom/current/output/chtml/part05/PS3.5.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;For example, following our analogy with programming languages, let’s say you would like to represent the number of rows of a medical image in C:&lt;/p&gt;
 
@@ -28,7 +28,7 @@
 
 &lt;ul style=&quot;text-align: justify&quot;&gt;
   &lt;li&gt;The data can be in text or binary format. Each VR will define if its store text or binary;&lt;/li&gt;
-  &lt;li&gt;Every VR has a data length. This is exactlyy the way DICOM knows where each data element starts and ends;&lt;/li&gt;
+  &lt;li&gt;Every VR has a data length. This is exactly the way DICOM knows where each data element starts and ends;&lt;/li&gt;
   &lt;li&gt;A VR can have a fixed data length or not for the number of characters/bytes. For example: &lt;strong&gt;DA&lt;/strong&gt;, Date, has a fixed length of 8, a string in the format &lt;strong&gt;YYYYMMDD&lt;/strong&gt;. On the other hand, &lt;strong&gt;DS&lt;/strong&gt;, Decimal string, for example, has a length of 16 maximum;&lt;/li&gt;
   &lt;li&gt;In the process of encondig, no matter if fixed length or not, all DICOM elements &lt;strong&gt;must contain even length&lt;/strong&gt;, i.e., if text, DICOM will guarantee an even number of characters and, if binary, DICOM will guarantee an even number of bytes. It adds a blank space if text data or a &lt;strong&gt;NULL&lt;/strong&gt; byte if the number of characters or bytes are odd, respectively.&lt;/li&gt;
 &lt;/ul&gt;
@@ -39,17 +39,212 @@
 
 &lt;p style=&quot;text-align: justify&quot;&gt;The &lt;a href=&quot;http://dicom.nema.org/medical/dicom/current/output/html/part06.html&quot;&gt;DICOM Data Dictionary&lt;/a&gt; is in its essence a big table that specifies all data elements alongside with their properties. See for example a DICOM dictionary example available in the awesome book &lt;a href=&quot;https://www.amazon.com/Digital-Imaging-Communications-Medicine-DICOM/dp/3642108490&quot;&gt;Digital Imaging and Communications in Medicine (DICOM): A Practical Introduction and Survival Guide&lt;/a&gt;:
 &lt;img src=&quot;/assets/images/dicom_dict.png&quot; alt=&quot;alt text&quot; title=&quot;DICOM Dictionary&quot; /&gt;
-From this table, you probably already noted that each element belongs to a group and has a tag. Therefore, a pair &lt;code class=&quot;highlighter-rouge&quot;&gt;(group, tag)&lt;/code&gt; uniquely identifies an element in DICOM. Other properties are the &lt;strong&gt;name&lt;/strong&gt;, &lt;strong&gt;keyword&lt;/strong&gt;, &lt;strong&gt;VR&lt;/strong&gt;, &lt;strong&gt;VM&lt;/strong&gt; and &lt;strong&gt;RET&lt;/strong&gt;. While DICOM applications refer to each data element by its group and tag, &lt;strong&gt;name&lt;/strong&gt; is a more human-readable description of the data element. The &lt;strong&gt;keyword&lt;/strong&gt; is a one-word text that provide a full description of the data element. Think about it as a represenation more close to property names in standards like XML or HTTP. &lt;strong&gt;VR&lt;/strong&gt; is the Value Represenation discussed in the previous section. &lt;strong&gt;VM&lt;/strong&gt; is the quantity of values that you can store in this data element. For example, if you have a &lt;strong&gt;VM&lt;/strong&gt; of 1 you can only store one data of that specificy &lt;strong&gt;VR&lt;/strong&gt;. On the other hand, a &lt;strong&gt;VM&lt;/strong&gt; of &lt;strong&gt;1-n&lt;/strong&gt; would allow one or more values of the specific &lt;strong&gt;VR&lt;/strong&gt;. One important thing to note here is to understand how DICOM store multiple values into a single element? For binary data, DICOM uses the legth of the single-value VR and just apply an offset to read the next element:&lt;/p&gt;
+From this table, you probably already noted that each element belongs to a group. Therefore, a pair &lt;code class=&quot;highlighter-rouge&quot;&gt;(group, element)&lt;/code&gt; uniquely identifies an element in DICOM and it’s known as a &lt;strong&gt;DICOM Tag&lt;/strong&gt;. Other properties are the &lt;strong&gt;name&lt;/strong&gt;, &lt;strong&gt;keyword&lt;/strong&gt;, &lt;strong&gt;VR&lt;/strong&gt;, &lt;strong&gt;VM&lt;/strong&gt; and &lt;strong&gt;RET&lt;/strong&gt;. While DICOM applications refer to each data element by its group and element, &lt;strong&gt;name&lt;/strong&gt; is a more human-readable description of the data element. The &lt;strong&gt;keyword&lt;/strong&gt; is a one-word text that provide a full description of the data element. Think about it as a represenation more close to property names in standards like XML or HTTP. &lt;strong&gt;VR&lt;/strong&gt; is the Value Represenation discussed in the previous section. &lt;strong&gt;VM&lt;/strong&gt; is the quantity of values that you can store in this data element. For example, if you have a &lt;strong&gt;VM&lt;/strong&gt; of 1 you can only store one data of that specificy &lt;strong&gt;VR&lt;/strong&gt;. On the other hand, a &lt;strong&gt;VM&lt;/strong&gt; of &lt;strong&gt;1-n&lt;/strong&gt; would allow one or more values of the specific &lt;strong&gt;VR&lt;/strong&gt;. One important thing to note here is to understand how DICOM store multiple values into a single element? For binary data, DICOM uses the legth of the single-value VR and just apply an offset to read the next element:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/multi_values_dicom.png&quot; alt=&quot;alt text&quot; title=&quot;Multi-value DICOM binary data&quot; /&gt;&lt;/p&gt;
 
 &lt;p style=&quot;text-align: justify&quot;&gt;For text data, there are no fixed legth. In this case, DICOM uses backslash (&lt;strong&gt;\&lt;/strong&gt;) as a delimiter. The data element (0010,1000), for example, &lt;strong&gt;Other Patient IDs&lt;/strong&gt;, has VR &lt;strong&gt;LO&lt;/strong&gt; (Long Sting) and multiplicity 1-n. In this case you could represent a patient who has, let’s say, three patient IDs (123, 456 and 789) in this way: &lt;strong&gt;“123\456\789”&lt;/strong&gt;.&lt;/p&gt;
 &lt;p style=&quot;text-align: justify&quot;&gt;Last, but not least, the &lt;strong&gt;RET&lt;/strong&gt; in the dicom dictonary defines a data element as RETIRED. As an analogy, they are like the &lt;strong&gt;deprecated&lt;/strong&gt; objects and/or methods in a programming language.&lt;/p&gt;
 
-&lt;p style=&quot;text-align: justify&quot;&gt;Another type of DICOM Dictonary is the &lt;strong&gt;Private DICOM Dictionary&lt;/strong&gt;. As you can see in the previous section, the public DICOM Dictionary is composed of more than 2000 data elements. While this looks impressive, allowing you to encode almost every information you need, sometimes you need to define custom attributes that only you, as a manufacturer, know. DICOM is prepared for it and reserves all odd groups for private data elements. For the sake of example, you could define &lt;strong&gt;(0009, 1010)&lt;/strong&gt; as Patient’s Education Level. Then,if you need that a specific consumer understand this data, you need to distribute this private dictionary so the consumer can understand each tag that you define.&lt;/p&gt;
+&lt;p style=&quot;text-align: justify&quot;&gt;Another type of DICOM Dictonary is the &lt;strong&gt;Private DICOM Dictionary&lt;/strong&gt;. As you can see in the previous section, the public DICOM Dictionary is composed of more than 2000 data elements. While this looks impressive, allowing you to encode almost every information you need, sometimes you need to define custom attributes that only you, as a manufacturer, know. DICOM is prepared for it and reserves all odd groups for private data elements. For the sake of example, you could define &lt;strong&gt;(0009, 1010)&lt;/strong&gt; as Patient’s Education Level. Then, if you need that a specific consumer understand this data, you need to distribute this private dictionary so the consumer can understand each tag that you define.&lt;/p&gt;
 
-&lt;h2 id=&quot;dicom-image-structure&quot;&gt;DICOM Image Structure&lt;/h2&gt;
+&lt;h2 id=&quot;dicom-data-encoding&quot;&gt;DICOM Data Encoding&lt;/h2&gt;
 
-&lt;p style=&quot;text-align: justify&quot;&gt;To understand DICOM, the first thing that you need to know is how the standard defines a &lt;strong&gt;DICOM Image&lt;/strong&gt;. Every image in DICOM is an &lt;em&gt;Information Object Definition&lt;/em&gt; (IOD). To understand what is the &lt;strong&gt;IOD&lt;/strong&gt;, pretend you are a doctor and you are examining a patient MR image to look for any disease and/or disorder. &lt;strong&gt;You simply can’t provide a diagnose only looking at the image&lt;/strong&gt;. You need to look also at the &lt;strong&gt;metadata&lt;/strong&gt;, i.e., the data produced at the circustances in which that particular image was taken. The metadata can be: Patient Name, Patient ID, Study Date, Study Description, Image Date, Image Time, etc. Then:&lt;br /&gt;&lt;br /&gt;
-&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;Pixel Data&lt;/span&gt; + &lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;Metadata&lt;/span&gt; = &lt;strong&gt;IOD&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/dicom_data.png&quot; alt=&quot;alt text&quot; title=&quot;DICOM IOD&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="DICOM" /><category term="Healthcare" /><summary type="html">This is the first post in a series of three presenting the DICOM standard. We’ll cover the basic understandind of DICOM, starting with the DICOM data encoding, the DICOM Image representation and DICOM Communication Model. Let’s start!</summary></entry></feed>
+&lt;p style=&quot;text-align: justify&quot;&gt;We now have the entire foundation to encode an object in DICOM. And this is very simple: A DICOM object is just a set of DICOM data elements together. Each data element, as described before, is mainly describe by a tag. See for example a real DICOM object read by the Free DICOM Medical Image Viewer &lt;a href=&quot;https://horosproject.org/&quot;&gt;Horos&lt;/a&gt;:
+&lt;img src=&quot;/assets/images/dicom_object.png&quot; alt=&quot;alt text&quot; title=&quot;DICOM Object&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;The picture is easy for a human to read it, i.e., you just need to go in every data element and read the value. However, we need to &lt;strong&gt;encode&lt;/strong&gt; it properly, so digital systems can store, read and transmit all of this DICOM information properly. Part PS3.5 of the DICOM standard defines two encoding types: &lt;strong&gt;implicit VR&lt;/strong&gt; and &lt;strong&gt;explicit VR&lt;/strong&gt;. The difference between them is that the former doesn’t have specific bytes to define the type of the VR while the later reserves two bytes to encode the VR. Another important point is that explicit VR is important for encoding nonstandard (proprietary) VRs that you can’t find in the standard DICOM dictionary.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Implicit VR&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;Group Number&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:green;font-weight:bold&quot;&gt;Element Number&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;Value Length&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;Value&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2 bytes&lt;/td&gt;
+      &lt;td&gt;2 bytes&lt;/td&gt;
+      &lt;td&gt;4 bytes X&lt;/td&gt;
+      &lt;td&gt;X (must be even)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Explicit VR&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;Group Number&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:green;font-weight:bold&quot;&gt;Element Number&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:magenta;font-weight:bold&quot;&gt;VR&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;Value Length&lt;/span&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;Value&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2 bytes&lt;/td&gt;
+      &lt;td&gt;2 bytes&lt;/td&gt;
+      &lt;td&gt;2 bytes&lt;/td&gt;
+      &lt;td&gt;2 bytes X&lt;/td&gt;
+      &lt;td&gt;X (must be even)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;Let’s see an example starting with the Implicit VR. Let’s say that we are trying to encode the data element &lt;strong&gt;SeriesDescription&lt;/strong&gt; from the picture whose value is “&lt;em&gt;Chest pa&lt;/em&gt;”. The encoding would be:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Byte #&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;th&gt;11&lt;/th&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;th&gt;13&lt;/th&gt;
+      &lt;th&gt;14&lt;/th&gt;
+      &lt;th&gt;15&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Decimal&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;62&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;h&lt;/td&gt;
+      &lt;td&gt;e&lt;/td&gt;
+      &lt;td&gt;s&lt;/td&gt;
+      &lt;td&gt;t&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;p&lt;/td&gt;
+      &lt;td&gt;a&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Binary&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;08&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;00&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:green;font-weight:bold&quot;&gt;3E&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:green;font-weight:bold&quot;&gt;10&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;08&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;00&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;00&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;00&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;43&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;68&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;65&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;73&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;74&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;20&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;70&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;61&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;Note that the default Endian type for DICOM is Little Endian, so for multi-byte numbers like Group Number, Element Number and Value Length, the lowest (rightmost) byte comes first and the highest byte is the next. Also, note that, as discussed earlier, DICOM always guarantee that the VR length is even, i.e., the number &lt;strong&gt;X&lt;/strong&gt; will always be even. In case of text value, a space will be added and in case of binary value a &lt;strong&gt;NULL&lt;/strong&gt; byte termiantor will be added.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;Did you realize now how easy is for DICOM to parse it? In the above example, it reads the first two bytes and it knows that it’s the &lt;strong&gt;Group Number&lt;/strong&gt;. Next two bytes and it’s the &lt;strong&gt;Element Number&lt;/strong&gt;. In the sequence, it reads 4 bytes (call it &lt;strong&gt;X&lt;/strong&gt;) that tells the &lt;strong&gt;Value Length&lt;/strong&gt; of the actual content. Last, but not least, it reads X bytes to retrieve the actual &lt;strong&gt;Value&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The same encoding with the explicit VR would be:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Byte #&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;th&gt;11&lt;/th&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;th&gt;13&lt;/th&gt;
+      &lt;th&gt;14&lt;/th&gt;
+      &lt;th&gt;15&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Decimal&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;62&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;L&lt;/td&gt;
+      &lt;td&gt;O&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;h&lt;/td&gt;
+      &lt;td&gt;e&lt;/td&gt;
+      &lt;td&gt;s&lt;/td&gt;
+      &lt;td&gt;t&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;p&lt;/td&gt;
+      &lt;td&gt;a&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Binary&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;08&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:red;font-weight:bold&quot;&gt;00&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:green;font-weight:bold&quot;&gt;3E&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:green;font-weight:bold&quot;&gt;10&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:magenta;font-weight:bold&quot;&gt;4C&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:magenta;font-weight:bold&quot;&gt;4F&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;08&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:blue;font-weight:bold&quot;&gt;00&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;43&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;68&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;65&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;73&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;74&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;20&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;70&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span style=&quot;color:orange;font-weight:bold&quot;&gt;61&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;You can see that for explicit encondig the 4 bytes of the VR field is divided in two fields of two bytes each, containing &lt;strong&gt;explicitely&lt;/strong&gt; the VR type.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p style=&quot;text-align: justify&quot;&gt;In this first post, we covered the basics of DICOM and learned how to describe the basic data elements in DICOM. The next post will talk about the DICOM objects.&lt;/p&gt;</content><author><name></name></author><category term="DICOM" /><category term="Healthcare" /><summary type="html">This is the first post in a series of four presenting the DICOM standard. We’ll cover the basic understandind of DICOM, starting with the DICOM data encoding. The next posts will focus on the DICOM Object, the DICOM Image representation and DICOM Communication Model.</summary></entry></feed>
